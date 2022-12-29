@@ -1,0 +1,34 @@
+﻿@model Storeage.Models.ImageModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add Emaployee</h1>
+    @using (Html.BeginForm("SavePicture", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="form-group">
+                <label>Name</label>
+                @Html.EditorFor(m=>m.Name,new{@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label >EmpId</label>
+                @Html.EditorFor(m=>m.EmpID,new{@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label>Project</label>
+                @Html.EditorFor(m=>m.Project,new{@class="form-control"})
+            </div>
+            <div>
+            @Html.LabelFor(m=>m.ImageDetails,new{@class="form-label"})
+            </div>
+            <div>
+            @Html.EditorFor(m=>m.File,new{@class="form-control"})
+        </div>
+            <button type="submit" class="btn btn-primary"> Submit</button>
+        </div>
+    }
+   
+</div>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Storeage.Models.EmployeeModel>
+@{
+    ViewData["Title"] = "Employee List";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Employee Id </th>
+        <th>Name </th>
+        <th>Project </th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.EmployeeId</td>
+            <td>@d.Name</td>
+            <td>@d.Project</td>
+            <td><img src="@Url.Content(d.ImagePath)" style="height:60px;width:60px;" alt="Image" /></td>
+            <td><a href="/Home/Delete?blobName=@d.ImagePath" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</a></td>
+        </tr>
+    }
+</table>
